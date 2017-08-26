@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     internal static class TypeConverterHelper
     {
         public static object Convert(string value, string destinationTypeFullName)

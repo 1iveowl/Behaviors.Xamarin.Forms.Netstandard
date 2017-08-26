@@ -8,6 +8,7 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     public class InvokeMethodAction : BindableObject, IAction
     {
         Type targetObjectType;

@@ -5,6 +5,7 @@ using Xamarin.Forms;
 
 namespace Behaviors.Base
 {
+    [Preserve(AllMembers = true)]
     public abstract class AnimationBase : BindableObject
     {
         public static readonly BindableProperty DurationProperty = BindableProperty.Create("Duration", typeof(int), typeof(AnimationBase), 250);

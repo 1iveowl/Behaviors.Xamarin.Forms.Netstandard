@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package >
   <metadata>
-    <id>Behavior.Xamarin.Forms</id>
+    <id>Behaviors.XamarinForms</id>
     <version>0</version>
     <title>Behaviors.Xamarin.Forms</title>
     <authors>Jasper H. Bojsen</authors>

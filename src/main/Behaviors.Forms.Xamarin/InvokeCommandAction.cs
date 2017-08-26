@@ -1,10 +1,12 @@
 ﻿using System.Threading.Tasks;
 using System.Windows.Input;
+using Behaviors.Interface;
 using Xamarin.Forms;
 
 namespace Behaviors
 {
-    class InvokeCommandAction : BindableObject
+    [Preserve(AllMembers = true)]
+    public sealed class InvokeCommandAction : BindableObject, IAction
     {
         public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(InvokeCommandAction), null);
         public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(InvokeCommandAction), null);

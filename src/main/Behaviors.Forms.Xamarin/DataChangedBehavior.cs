@@ -8,6 +8,8 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
+    [ContentProperty("Actions")]
     public sealed class DataChangedBehavior : BehaviorBase<VisualElement>
     {
         public static readonly BindableProperty ActionsProperty = BindableProperty.Create("Actions", typeof(ActionCollection), typeof(DataChangedBehavior), null);

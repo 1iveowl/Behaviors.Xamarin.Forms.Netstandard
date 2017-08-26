@@ -8,6 +8,7 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     public class ScaleAction : AnimationBase, IAction
     {
         public static readonly BindableProperty FinalScaleProperty = BindableProperty.Create("FinalScale", typeof(double), typeof(ScaleAction), 1.0);

@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     internal sealed class MethodDescriptor
     {
         public MethodInfo MethodInfo { get; }
