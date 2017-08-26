@@ -9,4 +9,4 @@ else {
 
 .\build.ps1 $version
 
-Nuget.exe push ".\NuGet\Behavior.Xamarin.Forms.$version.symbols.nupkg" -Source https://www.nuget.org
+Nuget.exe push ".\NuGet\Behaviors.XamarinForms.$version.symbols.nupkg" -Source https://www.nuget.org

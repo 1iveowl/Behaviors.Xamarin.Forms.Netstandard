@@ -9,4 +9,4 @@ else {
 
 .\build.ps1 $version
 
-nuget.exe push -Source "1iveowlNuGetRepo" -ApiKey key ".\NuGet\Behavior.Xamarin.Forms.$version.symbols.nupkg"
+nuget.exe push -Source "1iveowlNuGetRepo" -ApiKey key ".\NuGet\Behaviors.XamarinForms.$version.symbols.nupkg"
