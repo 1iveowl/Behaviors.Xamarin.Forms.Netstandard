@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
-    class InvokeCommandAction : BindableObject, IAction
+    public class InvokeCommandAction : BindableObject, IAction
     {
         public static readonly BindableProperty CommandProperty = BindableProperty.Create("Command", typeof(ICommand), typeof(InvokeCommandAction), null);
         public static readonly BindableProperty CommandParameterProperty = BindableProperty.Create("CommandParameter", typeof(object), typeof(InvokeCommandAction), null);
