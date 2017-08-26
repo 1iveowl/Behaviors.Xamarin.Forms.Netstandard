@@ -8,6 +8,7 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     public sealed class SetPropertyAction : BindableObject, IAction
     {
         public static readonly BindableProperty PropertyNameProperty = BindableProperty.Create("PropertyName", typeof(string), typeof(SetPropertyAction), null);

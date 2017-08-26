@@ -8,6 +8,7 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     public class TranslateAction : AnimationBase, IAction
     {
         public static readonly BindableProperty XProperty = BindableProperty.Create("X", typeof(double), typeof(TranslateAction), 1.0);

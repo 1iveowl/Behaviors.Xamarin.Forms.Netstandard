@@ -6,6 +6,8 @@ using Behaviors.Interface;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
+    [ContentProperty("Actions")]
     public sealed class EventHandlerBehavior : BehaviorBase<VisualElement>
     {
         Delegate eventHandler;

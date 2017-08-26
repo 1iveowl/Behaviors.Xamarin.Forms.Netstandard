@@ -7,6 +7,7 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     public class ActionCollection : BindableObjectCollection
     {
         public ActionCollection()

@@ -8,6 +8,7 @@ using Xamarin.Forms;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     public class RotateAction : AnimationBase, IAction
     {
         public static readonly BindableProperty FinalAngleProperty = BindableProperty.Create("FinalAngle", typeof(double), typeof(RotateAction), 0.0);

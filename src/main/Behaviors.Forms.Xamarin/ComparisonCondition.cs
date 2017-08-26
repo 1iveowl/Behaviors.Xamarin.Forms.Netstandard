@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Behaviors
 {
+    [Preserve(AllMembers = true)]
     public enum ComparisonCondition
     {
         Equal,

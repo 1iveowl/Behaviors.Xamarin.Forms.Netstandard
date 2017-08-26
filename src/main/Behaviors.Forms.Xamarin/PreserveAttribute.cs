@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Behaviors
 {
+    [AttributeUsage(AttributeTargets.All)]
     public class PreserveAttribute : Attribute
     {
         public bool AllMembers;
