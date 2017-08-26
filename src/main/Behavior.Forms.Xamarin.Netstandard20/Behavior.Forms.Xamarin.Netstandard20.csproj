@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyVersion>2.4.0.266</AssemblyVersion>
+    <FileVersion>2.4.0.266</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\Behaviors.Forms.Xamarin\ActionCollection.cs" Link="ActionCollection.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\Base\AnimationBase.cs" Link="Base\AnimationBase.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\Base\BehaviorBase.cs" Link="Base\BehaviorBase.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\BindableObjectCollection.cs" Link="BindableObjectCollection.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\ComparisonCondition.cs" Link="ComparisonCondition.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\DataChangedBehavior.cs" Link="DataChangedBehavior.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\EasingFunction.cs" Link="EasingFunction.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\EventHandlerBehavior.cs" Link="EventHandlerBehavior.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\FadeAction.cs" Link="FadeAction.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\Interface\IActioncs.cs" Link="Interface\IActioncs.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\InvokeCommandAction.cs" Link="InvokeCommandAction.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\InvokeMethodAction.cs" Link="InvokeMethodAction.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\MethodDescriptor.cs" Link="MethodDescriptor.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\PreserveAttribute.cs" Link="PreserveAttribute.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\RotateAction.cs" Link="RotateAction.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\RotateAxis.cs" Link="RotateAxis.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\ScaleAction.cs" Link="ScaleAction.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\SetPropertyAction.cs" Link="SetPropertyAction.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\TranslateAction.cs" Link="TranslateAction.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\TypeConverterHelper.cs" Link="TypeConverterHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.266-pre1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Base\" />
+    <Folder Include="Interface\" />
+  </ItemGroup>
+
+</Project>

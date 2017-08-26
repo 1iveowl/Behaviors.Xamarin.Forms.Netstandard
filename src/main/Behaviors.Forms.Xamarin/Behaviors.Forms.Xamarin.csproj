@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard1.3</TargetFramework>
+    <RootNamespace>Behaviors</RootNamespace>
+    <AssemblyName>Behaviors</AssemblyName>
+    <AssemblyVersion>2.4.0.226</AssemblyVersion>
+    <FileVersion>2.4.0.266</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="2.4.0.266-pre1" />
+  </ItemGroup>
+
+</Project>
