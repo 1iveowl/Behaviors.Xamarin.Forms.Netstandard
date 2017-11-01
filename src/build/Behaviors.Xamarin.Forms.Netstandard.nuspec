@@ -18,11 +18,11 @@
     <dependencies>
     
       <group targetFramework="netstandard1.3">
-          <dependency id="Xamarin.Forms" version="2.4.0.18343"/>
+          <dependency id="Xamarin.Forms" version="2.4.0.38779"/>
       </group>
     
       <group targetFramework="netstandard2.0">
-        <dependency id="Xamarin.Forms" version="2.4.0.18343"/>
+        <dependency id="Xamarin.Forms" version="2.4.0.38779"/>
       </group>
 
     </dependencies>
