@@ -4,12 +4,12 @@
     <TargetFramework>netstandard1.3</TargetFramework>
     <RootNamespace>Behaviors</RootNamespace>
     <AssemblyName>Behaviors</AssemblyName>
-    <AssemblyVersion>2.4.0.226</AssemblyVersion>
-    <FileVersion>2.4.0.266</FileVersion>
+    <AssemblyVersion>2.5.0.0</AssemblyVersion>
+    <FileVersion>2.5.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.38779" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.77107" />
   </ItemGroup>
 
 </Project>

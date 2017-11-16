@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>2.4.3.38779</AssemblyVersion>
-    <FileVersion>2.4.3.38779</FileVersion>
+    <AssemblyVersion>2.5.0.0</AssemblyVersion>
+    <FileVersion>2.5.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="2.4.0.38779" />
+    <PackageReference Include="Xamarin.Forms" Version="2.5.0.77107" />
   </ItemGroup>
 
   <ItemGroup>
