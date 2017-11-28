@@ -59,7 +59,9 @@ namespace Behaviors
                     }
                     else
                     {
+#pragma warning disable 4014
                         element.RotateXTo(FinalAngle, (uint)Duration, GetEasingFunction());
+#pragma warning restore 4014
                     }
                     break;
                 case RotationAxis.Y:
@@ -69,7 +71,9 @@ namespace Behaviors
                     }
                     else
                     {
+#pragma warning disable 4014
                         element.RotateYTo(FinalAngle, (uint)Duration, GetEasingFunction());
+#pragma warning restore 4014
                     }
                     break;
                 case RotationAxis.Z:
@@ -81,7 +85,9 @@ namespace Behaviors
                         }
                         else
                         {
+#pragma warning disable 4014
                             element.RelRotateTo(FinalAngle, (uint)Duration, GetEasingFunction());
+#pragma warning restore 4014
                         }
                     }
                     else
@@ -92,7 +98,9 @@ namespace Behaviors
                         }
                         else
                         {
+#pragma warning disable 4014
                             element.RotateTo(FinalAngle, (uint)Duration, GetEasingFunction());
+#pragma warning restore 4014
                         }
                     }
                     break;

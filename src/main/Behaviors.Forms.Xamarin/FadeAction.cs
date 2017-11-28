@@ -42,7 +42,9 @@ namespace Behaviors
             }
             else
             {
+#pragma warning disable 4014
                 element.FadeTo(FinalOpacity, (uint)Duration, GetEasingFunction());
+#pragma warning restore 4014
             }
 
             return true;
