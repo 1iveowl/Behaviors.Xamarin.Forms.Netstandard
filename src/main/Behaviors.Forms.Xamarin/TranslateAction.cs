@@ -49,7 +49,9 @@ namespace Behaviors
             }
             else
             {
+#pragma warning disable 4014
                 element.TranslateTo(X, Y, (uint)Duration, GetEasingFunction());
+#pragma warning restore 4014
             }
 
             return true;

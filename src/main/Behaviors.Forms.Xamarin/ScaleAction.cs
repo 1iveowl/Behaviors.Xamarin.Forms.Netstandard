@@ -51,7 +51,9 @@ namespace Behaviors
                 }
                 else
                 {
+#pragma warning disable 4014
                     element.RelScaleTo(FinalScale, (uint)Duration, GetEasingFunction());
+#pragma warning restore 4014
                 }
             }
             else
@@ -62,7 +64,9 @@ namespace Behaviors
                 }
                 else
                 {
+#pragma warning disable 4014
                     element.ScaleTo(FinalScale, (uint)Duration, GetEasingFunction());
+#pragma warning restore 4014
                 }
             }
 
