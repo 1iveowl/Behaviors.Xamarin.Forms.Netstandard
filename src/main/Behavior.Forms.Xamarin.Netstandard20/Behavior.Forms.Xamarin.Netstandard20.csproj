@@ -10,13 +10,14 @@
     <Compile Include="..\Behaviors.Forms.Xamarin\ActionCollection.cs" Link="ActionCollection.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\Base\AnimationBase.cs" Link="Base\AnimationBase.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\Base\BehaviorBase.cs" Link="Base\BehaviorBase.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\Base\BehaviorPropertiesBase.cs" Link="Base\BehaviorPropertiesBase.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\BindableObjectCollection.cs" Link="BindableObjectCollection.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\ComparisonCondition.cs" Link="ComparisonCondition.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\DataChangedBehavior.cs" Link="DataChangedBehavior.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\EasingFunction.cs" Link="EasingFunction.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\EventHandlerBehavior.cs" Link="EventHandlerBehavior.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\FadeAction.cs" Link="FadeAction.cs" />
-    <Compile Include="..\Behaviors.Forms.Xamarin\Interface\IActioncs.cs" Link="Interface\IActioncs.cs" />
+    <Compile Include="..\Behaviors.Forms.Xamarin\Interface\IAction.cs" Link="Interface\IAction.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\InvokeCommandAction.cs" Link="InvokeCommandAction.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\InvokeMethodAction.cs" Link="InvokeMethodAction.cs" />
     <Compile Include="..\Behaviors.Forms.Xamarin\MethodDescriptor.cs" Link="MethodDescriptor.cs" />
@@ -30,7 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="3.0.0.446417" />
+    <PackageReference Include="Xamarin.Forms" Version="3.0.0.482510" />
   </ItemGroup>
 
   <ItemGroup>
