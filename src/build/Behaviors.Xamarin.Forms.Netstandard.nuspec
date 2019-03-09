@@ -13,7 +13,7 @@
     <description>
       Behaviors for Xamarin.Forms .NET Standard 1.3/2.0</description>
     <releaseNotes>
-      [Xamarin Forms] Update to Xamarin Forms 3.0.0.482510
+      [Xamarin Forms] Update to Xamarin Forms 3.6.0.220655
       [Feature Update] ConverterParameter for InvokeCommandAction
       [Feature Update] SourceObject property for EventHandlerBehavior
       [Feature Update] Added GoToStateAction
@@ -23,11 +23,11 @@
     <dependencies>
     
       <group targetFramework="netstandard1.3">
-          <dependency id="Xamarin.Forms" version="3.0.0.482510"/>
+          <dependency id="Xamarin.Forms" version="3.6.0.220655"/>
       </group>
     
       <group targetFramework="netstandard2.0">
-        <dependency id="Xamarin.Forms" version="3.0.0.482510"/>
+        <dependency id="Xamarin.Forms" version="3.6.0.220655"/>
       </group>
 
     </dependencies>
