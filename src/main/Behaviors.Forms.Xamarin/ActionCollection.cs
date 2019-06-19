@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
-using System.Text;
 using Behaviors.Interface;
 using Xamarin.Forms;
 
@@ -15,25 +13,36 @@ namespace Behaviors
             CollectionChanged += ActionCollection_CollectionChanged;
         }
 
-        void ActionCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        private void ActionCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             var collectionChange = e.Action;
 
-            if (collectionChange == NotifyCollectionChangedAction.Reset)
+            var changed = this[(int)e.NewStartingIndex];
+
+            switch (collectionChange)
             {
-                foreach (BindableObject bindable in this)
+                case NotifyCollectionChangedAction.Reset:
                 {
-                    ActionCollection.VerifyType(bindable);
+                    foreach (var bindable in this)
+                    {
+                        VerifyType(bindable);
+                    }
+
+                    break;
                 }
-            }
-            else if (collectionChange == NotifyCollectionChangedAction.Replace)
-            {
-                BindableObject changed = this[(int)e.NewStartingIndex];
-                ActionCollection.VerifyType(changed);
+
+                case NotifyCollectionChangedAction.Replace:
+                    VerifyType(changed);
+                    break;
+                case NotifyCollectionChangedAction.Add:
+                case NotifyCollectionChangedAction.Move:
+                case NotifyCollectionChangedAction.Remove:
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
         }
 
-        static void VerifyType(BindableObject bindable)
+        private static void VerifyType(BindableObject bindable)
         {
             if (!(bindable is IAction))
             {

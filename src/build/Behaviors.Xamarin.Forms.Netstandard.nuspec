@@ -14,6 +14,7 @@
       Behaviors for Xamarin.Forms .NET Standard 1.3/2.0</description>
     <releaseNotes>
       [Xamarin Forms] Update to Xamarin Forms 4.0.0.497661
+      [Clean up and bug fixes]
       [Feature Update] ConverterParameter for InvokeCommandAction
       [Feature Update] SourceObject property for EventHandlerBehavior
       [Feature Update] Added GoToStateAction

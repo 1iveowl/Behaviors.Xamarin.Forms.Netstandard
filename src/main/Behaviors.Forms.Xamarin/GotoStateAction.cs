@@ -32,24 +32,22 @@ namespace Behaviors
                 return false;
             }
 
-            if (TargetObject != null)
+            if (TargetObject is VisualElement element)
             {
-                if (!(TargetObject is VisualElement element))
-                {
-                    return false;
-                }
-
                 return GoToState(element, StateName);
             }
+
             return false;
         }
 
         private bool GoToState(VisualElement visualElement, string stateName)
         {
-            if (visualElement == null)
+            if (visualElement is null)
             {
                 throw new ArgumentNullException(nameof(visualElement));
             }
+
+
             if (string.IsNullOrWhiteSpace(stateName))
             {
                 throw new ArgumentNullException(nameof(stateName));

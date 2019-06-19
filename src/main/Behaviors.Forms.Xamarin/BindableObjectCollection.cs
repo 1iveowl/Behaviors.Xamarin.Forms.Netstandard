@@ -8,11 +8,16 @@ using Xamarin.Forms;
 namespace Behaviors
 {
     [Preserve(AllMembers = true)]
-    public class BindableObjectCollection : BindableObject, IList<BindableObject>, INotifyCollectionChanged
+    public class BindableObjectCollection : BindableObject, IEnumerable<BindableObject>, INotifyCollectionChanged
     {
-        private readonly List<BindableObject> _items = new List<BindableObject>();
+        private readonly IList<BindableObject> _items;
 
         public event NotifyCollectionChangedEventHandler CollectionChanged;
+
+        public BindableObjectCollection()
+        {
+            _items = new List<BindableObject>();
+        }
 
         public int IndexOf(BindableObject item)
         {

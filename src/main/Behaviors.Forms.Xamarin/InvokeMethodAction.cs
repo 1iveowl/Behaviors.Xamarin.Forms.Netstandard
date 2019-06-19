@@ -11,12 +11,12 @@ namespace Behaviors
     [Preserve(AllMembers = true)]
     public class InvokeMethodAction : BindableObject, IAction
     {
-        Type targetObjectType;
-        MethodDescriptor cachedMethodDescriptor;
-        List<MethodDescriptor> methodDescriptors = new List<MethodDescriptor>();
+        private Type _targetObjectType;
+        private MethodDescriptor _cachedMethodDescriptor;
+        private readonly List<MethodDescriptor> _methodDescriptors = new List<MethodDescriptor>();
 
-        public static readonly BindableProperty MethodNameProperty = BindableProperty.Create("MethodName", typeof(string), typeof(InvokeMethodAction), null, propertyChanged: OnMethodNameChanged);
-        public static readonly BindableProperty TargetObjectProperty = BindableProperty.Create("TargetObject", typeof(object), typeof(InvokeMethodAction), null, propertyChanged: OnTargetObjectChanged);
+        public static readonly BindableProperty MethodNameProperty = BindableProperty.Create(nameof(MethodName), typeof(string), typeof(InvokeMethodAction), null, propertyChanged: OnMethodNameChanged);
+        public static readonly BindableProperty TargetObjectProperty = BindableProperty.Create(nameof(TargetObject), typeof(object), typeof(InvokeMethodAction), null, propertyChanged: OnTargetObjectChanged);
 
         public string MethodName
         {
@@ -30,13 +30,12 @@ namespace Behaviors
             set => SetValue(TargetObjectProperty, value);
         }
 
-#pragma warning disable CS1998 // Async method lacks 'await' operators and will run synchronously
+
         public async Task<bool> Execute(object sender, object parameter)
-#pragma warning restore CS1998 // Async method lacks 'await' operators and will run synchronously
         {
             var target = GetValue(TargetObjectProperty) != null ? TargetObject : sender;
 
-            if (target == null || string.IsNullOrWhiteSpace(MethodName))
+            if (target is null || string.IsNullOrWhiteSpace(MethodName))
             {
                 return false;
             }
@@ -44,7 +43,8 @@ namespace Behaviors
             UpdateTargetType(target.GetType());
 
             var methodDescriptor = FindBestMethod(parameter);
-            if (methodDescriptor == null)
+
+            if (methodDescriptor is null)
             {
                 if (TargetObject != null)
                 {
@@ -54,15 +54,19 @@ namespace Behaviors
             }
 
             var parameters = methodDescriptor.Parameters;
-            switch (parameters.Length)
+
+            if (parameters.Length == 0)
             {
-                case 0:
-                    methodDescriptor.MethodInfo.Invoke(target, parameters: null);
-                    return true;
-                case 2:
-                    methodDescriptor.MethodInfo.Invoke(target, new object[] { target, parameter });
-                    return true;
+                methodDescriptor.MethodInfo.Invoke(target, parameters: null);
+                return true;
             }
+            else if (parameters.Length == 2)
+            {
+                methodDescriptor.MethodInfo.Invoke(target, new object[] {target, parameter});
+                return true;
+            }
+
+            await Task.CompletedTask;
 
             return false;
         }
@@ -71,64 +75,68 @@ namespace Behaviors
         {
             var parameterTypeInfo = parameter?.GetType().GetTypeInfo();
 
-            if (parameterTypeInfo == null)
+            if (parameterTypeInfo is null)
             {
-                return cachedMethodDescriptor;
+                return _cachedMethodDescriptor;
             }
 
             MethodDescriptor mostDerivedMethod = null;
 
-            foreach (MethodDescriptor currentMethod in methodDescriptors)
+            foreach (var currentMethod in _methodDescriptors)
             {
                 var currentTypeInfo = currentMethod.SecondParameterTypeInfo;
 
                 if (currentTypeInfo.IsAssignableFrom(parameterTypeInfo))
                 {
-                    if (mostDerivedMethod == null || !currentTypeInfo.IsAssignableFrom(mostDerivedMethod.SecondParameterTypeInfo))
+                    if (mostDerivedMethod is null || !currentTypeInfo.IsAssignableFrom(mostDerivedMethod.SecondParameterTypeInfo))
                     {
                         mostDerivedMethod = currentMethod;
                     }
                 }
             }
 
-            return mostDerivedMethod ?? cachedMethodDescriptor;
+            return mostDerivedMethod ?? _cachedMethodDescriptor;
         }
 
         private void UpdateTargetType(Type newTargetType)
         {
-            if (newTargetType == targetObjectType)
+            if (newTargetType == _targetObjectType)
             {
                 return;
             }
 
-            targetObjectType = newTargetType;
+            _targetObjectType = newTargetType;
+
             UpdateMethodDescriptors();
         }
 
         private void UpdateMethodDescriptors()
         {
-            methodDescriptors.Clear();
-            cachedMethodDescriptor = null;
+            _methodDescriptors.Clear();
 
-            if (string.IsNullOrWhiteSpace(MethodName) || targetObjectType == null)
+            _cachedMethodDescriptor = null;
+
+            if (string.IsNullOrWhiteSpace(MethodName) || _targetObjectType is null)
             {
                 return;
             }
 
-            foreach (MethodInfo method in targetObjectType.GetRuntimeMethods())
+            foreach (var method in _targetObjectType.GetRuntimeMethods())
             {
-                if (string.Equals(method.Name, MethodName, StringComparison.Ordinal) && method.ReturnType == typeof(void) && method.IsPublic)
+                if (string.Equals(method.Name, MethodName, StringComparison.Ordinal) 
+                    && method.ReturnType == typeof(void)
+                    && method.IsPublic)
                 {
                     var parameters = method.GetParameters();
 
-                    switch (parameters.Length)
+                    if (parameters.Length == 0)
                     {
-                        case 0:
-                            cachedMethodDescriptor = new MethodDescriptor(method, parameters);
-                            break;
-                        case 2 when parameters[0].ParameterType == typeof(object):
-                            methodDescriptors.Add(new MethodDescriptor(method, parameters));
-                            break;
+                        _cachedMethodDescriptor = new MethodDescriptor(method, parameters);
+                    }
+                        
+                    else if (parameters.Length == 2 && parameters[0].ParameterType == typeof(object))
+                    {
+                        _methodDescriptors.Add(new MethodDescriptor(method, parameters));
                     }
                 }
             }

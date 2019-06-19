@@ -11,8 +11,8 @@ namespace Behaviors
     [Preserve(AllMembers = true)]
     public class TranslateAction : AnimationBase, IAction
     {
-        public static readonly BindableProperty XProperty = BindableProperty.Create("X", typeof(double), typeof(TranslateAction), 1.0);
-        public static readonly BindableProperty YProperty = BindableProperty.Create("Y", typeof(double), typeof(TranslateAction), 1.0);
+        public static readonly BindableProperty XProperty = BindableProperty.Create(nameof(X), typeof(double), typeof(TranslateAction), 1.0);
+        public static readonly BindableProperty YProperty = BindableProperty.Create(nameof(Y), typeof(double), typeof(TranslateAction), 1.0);
 
         public double X
         {
@@ -28,19 +28,14 @@ namespace Behaviors
 
         public async Task<bool> Execute(object sender, object parameter)
         {
-            VisualElement element;
-            if (TargetObject != null)
-            {
-                element = TargetObject as VisualElement;
-            }
-            else
+            if (!(TargetObject is VisualElement element))
             {
                 element = sender as VisualElement;
-            }
 
-            if (element == null)
-            {
-                return false;
+                if (element is null)
+                {
+                    return false;
+                }
             }
 
             if (Await)
