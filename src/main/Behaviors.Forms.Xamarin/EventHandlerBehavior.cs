@@ -110,6 +110,16 @@ namespace Behaviors
             _eventHandler = null;
         }
 
+        async void OnEvent(object sender, object eventArgs)
+		{
+			foreach (var bindable in Actions)
+			{
+				bindable.BindingContext = BindingContext;
+				var action = (IAction)bindable;
+				await action.Execute(sender, eventArgs);
+			}
+}
+
         private static void OnEventNameChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if (!(bindable is EventHandlerBehavior behavior))

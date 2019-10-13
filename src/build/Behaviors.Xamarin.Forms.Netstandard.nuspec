@@ -13,22 +13,19 @@
     <description>
       Behaviors for Xamarin.Forms .NET Standard 1.3/2.0</description>
     <releaseNotes>
-      [Xamarin Forms] Update to Xamarin Forms 4.0.0.497661
-      [Clean up and bug fixes]
-      [Feature Update] ConverterParameter for InvokeCommandAction
-      [Feature Update] SourceObject property for EventHandlerBehavior
-      [Feature Update] Added GoToStateAction
+[Xamarin Forms] Update to Xamarin Forms 4.0.0.709238
+[Bug fixed]
     </releaseNotes>
     <copyright>Copyright 2019</copyright>
     <tags>xamarin xamarin.forms behaviors netstandard netstandard13 netstandard20</tags>
     <dependencies>
     
       <group targetFramework="netstandard1.3">
-          <dependency id="Xamarin.Forms" version="4.0.0.497661"/>
+          <dependency id="Xamarin.Forms" version="4.0.0.709238"/>
       </group>
     
       <group targetFramework="netstandard2.0">
-        <dependency id="Xamarin.Forms" version="4.0.0.497661"/>
+        <dependency id="Xamarin.Forms" version="4.0.0.709238"/>
       </group>
 
     </dependencies>

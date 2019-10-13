@@ -17,8 +17,6 @@ namespace Behaviors
         {
             var collectionChange = e.Action;
 
-            var changed = this[(int)e.NewStartingIndex];
-
             switch (collectionChange)
             {
                 case NotifyCollectionChangedAction.Reset:
@@ -30,15 +28,12 @@ namespace Behaviors
 
                     break;
                 }
-
                 case NotifyCollectionChangedAction.Replace:
-                    VerifyType(changed);
+                {
+                    var changed = this[e.NewStartingIndex];
+                   VerifyType(changed);
                     break;
-                case NotifyCollectionChangedAction.Add:
-                case NotifyCollectionChangedAction.Move:
-                case NotifyCollectionChangedAction.Remove:
-                default:
-                    throw new ArgumentOutOfRangeException();
+                }
             }
         }
 
