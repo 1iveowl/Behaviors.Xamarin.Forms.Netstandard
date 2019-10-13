@@ -4,7 +4,7 @@ using Xamarin.Forms;
 namespace Behaviors.Base
 {
     [Preserve(AllMembers = true)]
-    public abstract class BehaviorBase<T> : Behavior<T> where T : BindableObject
+    public class BehaviorBase<T> : Behavior<T> where T : BindableObject
     {
         public T AssociatedObject { get; private set; }
 

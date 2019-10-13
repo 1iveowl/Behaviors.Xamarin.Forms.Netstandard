@@ -39,17 +39,18 @@ namespace Behaviors
 
         public async Task<bool> Execute(object sender, object parameter)
         {
-            if (Command == null)
+            if (Command is null)
             {
                 return false;
             }
-
+            
             object resolvedParameter;
-            if (CommandParameter != null)
+
+            if (!(CommandParameter is null))
             {
                 resolvedParameter = CommandParameter;
             }
-            else if (Converter != null)
+            else if (!(Converter is null))
             {
                 resolvedParameter = Converter.Convert(parameter, typeof(object), ConverterParameter, null);
             }
@@ -64,6 +65,9 @@ namespace Behaviors
             }
 
             Command.Execute(resolvedParameter);
+
+            await Task.CompletedTask;
+
             return true;
         }
     }

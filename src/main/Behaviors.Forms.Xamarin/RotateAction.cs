@@ -11,9 +11,9 @@ namespace Behaviors
     [Preserve(AllMembers = true)]
     public class RotateAction : AnimationBase, IAction
     {
-        public static readonly BindableProperty FinalAngleProperty = BindableProperty.Create("FinalAngle", typeof(double), typeof(RotateAction), 0.0);
-        public static readonly BindableProperty IsRelativeProperty = BindableProperty.Create("IsRelative", typeof(bool), typeof(RotateAction), false);
-        public static readonly BindableProperty AxisProperty = BindableProperty.Create("Axis", typeof(RotationAxis), typeof(RotateAction), RotationAxis.Z);
+        public static readonly BindableProperty FinalAngleProperty = BindableProperty.Create(nameof(FinalAngle), typeof(double), typeof(RotateAction), 0.0);
+        public static readonly BindableProperty IsRelativeProperty = BindableProperty.Create(nameof(IsRelative), typeof(bool), typeof(RotateAction), false);
+        public static readonly BindableProperty AxisProperty = BindableProperty.Create(nameof(Axis), typeof(RotationAxis), typeof(RotateAction), RotationAxis.Z);
 
         public double FinalAngle
         {
@@ -35,19 +35,15 @@ namespace Behaviors
 
         public async Task<bool> Execute(object sender, object parameter)
         {
-            VisualElement element;
-            if (TargetObject != null)
-            {
-                element = TargetObject as VisualElement;
-            }
-            else
+
+            if (!(TargetObject is VisualElement element))
             {
                 element = sender as VisualElement;
-            }
 
-            if (element == null)
-            {
-                return false;
+                if (element is null)
+                {
+                    return false;
+                }
             }
 
             switch (Axis)

@@ -8,10 +8,10 @@ namespace Behaviors.Base
     [Preserve(AllMembers = true)]
     public abstract class AnimationBase : BindableObject
     {
-        public static readonly BindableProperty DurationProperty = BindableProperty.Create("Duration", typeof(int), typeof(AnimationBase), 250);
-        public static readonly BindableProperty EasingFunctionProperty = BindableProperty.Create("EasingFunction", typeof(EasingFunction), typeof(AnimationBase), EasingFunction.Linear);
-        public static readonly BindableProperty TargetObjectProperty = BindableProperty.Create("TargetObject", typeof(object), typeof(AnimationBase), null);
-        public static readonly BindableProperty AwaitProperty = BindableProperty.Create("Await", typeof(bool), typeof(AnimationBase), false);
+        public static readonly BindableProperty DurationProperty = BindableProperty.Create(nameof(Duration), typeof(int), typeof(AnimationBase), 250);
+        public static readonly BindableProperty EasingFunctionProperty = BindableProperty.Create(nameof(EasingFunction), typeof(EasingFunction), typeof(AnimationBase), EasingFunction.Linear);
+        public static readonly BindableProperty TargetObjectProperty = BindableProperty.Create(nameof(TargetObject), typeof(object), typeof(AnimationBase), null);
+        public static readonly BindableProperty AwaitProperty = BindableProperty.Create(nameof(Await), typeof(bool), typeof(AnimationBase), false);
 
         public int Duration
         {
